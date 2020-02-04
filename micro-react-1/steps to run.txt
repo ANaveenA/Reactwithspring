@@ -1,0 +1,5 @@
+1.npm install -g live-server
+2.npm install -g babel-cli@latest
+3.npm install
+7.npm run dev-dev-server
+8.npm run build
