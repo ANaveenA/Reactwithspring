@@ -1,0 +1,21 @@
+
+zookeeper-server-start.bat ..\..\config/zookeeper.properties
+kafka-server-start.bat ..\..\config\server.properties
+kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic user_messages
+kafka-console-producer.bat --broker-list localhost:9092 --topic user_messages
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic user_messages --from-beginning
+
+Test cases sample JSON:
+
+Test case 1:Automatically the folllowing Json will send to kafka(topics:user_messages) and browser
+                {"id":1,"name":"Praveen","date": "21:52:46"}
+				
+Test case 2:Send the folllowing Json from kafka(topics:user_messages) and browser
+                {"id":1,"name":"Krishna","date": "21:52:46"}
+				
+Test case 3:Send the folllowing Json from kafka(topics:user_messages) and browser
+
+       {"messages":{"message1":[{"id":1,"name":"Rock","date": "21:52:46"},{"id": 2,"name": "Rock2","date": "21:52:46"},{"id": 3,"name": "Rock3","date": "21:52:46"},{"id": 4,"name": "Rock4","date": "21:52:46"}],"message2":[{"id": 2,"name": "Naveen","date": "21:52:46"}],"message3":[{"id":3,"name": "Vijay","date": "21:52:46"}],"message4":[{"id":4,"name": "Arun","date": "21:52:46"}]}}
+
+
+      
